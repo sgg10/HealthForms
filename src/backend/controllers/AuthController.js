@@ -12,4 +12,6 @@ const changePass = (email) => auth.changePass(email)
 
 const signOut = () => auth.signOut()
 
-export { createCompany, signInEmail, signInGoogle, changePass, signOut }
+const getUser = () => auth.getUser()
+
+export { createCompany, signInEmail, signInGoogle, changePass, signOut, getUser }

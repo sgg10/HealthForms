@@ -4,7 +4,9 @@
       <BaseLoading/>
     </Loadlayout>
 
-    <MainLayout v-else/>
+    <b-container fluid v-else>
+      <MainLayout />
+    </b-container>
   </div>
 </template>
 

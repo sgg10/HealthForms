@@ -21,6 +21,8 @@ class Auth {
   changePass = (email) => auth().sendPasswordResetEmail(email)
 
   signOut = () => auth().signOut()
+
+  getUser = () => auth().getUser()
 }
 
 export default Auth
