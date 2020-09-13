@@ -1,4 +1,5 @@
-# health_forms
+# HealthForms
+Application for integrator project 1
 
 ## Project setup
 ```
