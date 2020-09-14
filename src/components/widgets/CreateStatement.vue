@@ -13,10 +13,12 @@ import { VueEditor } from 'vue2-editor'
 import { create, getAll, update } from '../../backend/controllers/FirestoreController'
 import { mapGetters, mapMutations } from 'vuex'
 import { showToast } from '../../utils'
+import setError from '../../mixins/setError'
 
 export default {
   name: 'CreateStatement',
   components: { VueEditor },
+  mixins: [setError],
   data () {
     return {
       statements: '',
@@ -36,8 +38,9 @@ export default {
         }
         showToast(this.$bvToast, 'Complete', 'The statements were set correctly', 'success')
       } catch (error) {
-        // TODO: Use setError to show any error
-        console.log('Error')
+        // TODO: Go to error view or show toast?
+        this.setErrors(error)
+        this.$router.push({ name: 'Error' })
       } finally {
         this.SET_LOADING(false)
       }
@@ -57,8 +60,8 @@ export default {
         this.exists = true
       }
     } catch (error) {
-      // TODO: Use setError to show any error
-      console.log('Error')
+      this.setErrors(error)
+      this.$router.push({ name: 'Error' })
     } finally {
       this.SET_LOADING(false)
     }
