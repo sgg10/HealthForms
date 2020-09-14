@@ -22,7 +22,7 @@ class Auth {
 
   signOut = () => auth().signOut()
 
-  getUser = () => auth().getUser()
+  getUser = () => auth().currentUser
 }
 
 export default Auth
