@@ -30,7 +30,10 @@
               <b-dropdown-item :to="{name: 'verRegistros'}" disabled>Profile</b-dropdown-item>
               <b-dropdown-item href="#" @click="logOut">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-navbar-brand class="brand" v-else @click="$router.push({name: 'Login'})">Sign In</b-navbar-brand>
+          <section v-else>
+            <b-navbar-brand class="brand" @click="$router.push({name: 'Login'})">Sign In</b-navbar-brand>
+            <b-navbar-brand class="brand" @click="$router.push({name: 'Register'})">Sign Up</b-navbar-brand>
+          </section>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
