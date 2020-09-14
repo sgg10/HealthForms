@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit.prevent="register">
+    <b-form @submit.prevent="signInEmail">
       <b-row>
         <b-col>
           <b-form-group label="Email:" label-for="txtEmail">
