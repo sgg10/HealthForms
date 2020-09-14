@@ -6,6 +6,8 @@ Vue.use(VueRouter)
 const routerOptions = [
   { path: '/', name: 'Home' },
   { path: '/about', name: 'About' },
+  { path: '/signUp', name: 'Register' },
+  { path: '/signIn', name: 'Login' },
   { path: '/error', name: 'Error' },
   { path: '*', redirect: { name: 'Home' } }
 ]
