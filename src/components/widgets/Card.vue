@@ -10,7 +10,7 @@
       img-height="150"
     >
       <b-card-text>{{ msg }}</b-card-text>
-      <b-button variant="success" @click="emit">{{ msgButton }}</b-button>
+      <b-button variant="success" @click="emite">Enter</b-button>
     </b-card>
   </div>
 </template>
@@ -30,14 +30,10 @@ export default {
     msg: {
       required: true,
       type: String
-    },
-    msgButton: {
-      required: true,
-      type: String
     }
   },
   methods: {
-    emit () {
+    emite () {
       this.$emit('action', true)
     }
   }
