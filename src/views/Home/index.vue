@@ -7,7 +7,7 @@
                         <Card title="Nuevo Procedimiento"
                         msg="Genera historia, control de Covid-19 y registro de procedimiento rapidamente."
                         img="https://firebasestorage.googleapis.com/v0/b/maquillaje-permanente.appspot.com/o/Imgs%2Fcejas-tatuadas_opt-1.png?alt=media&token=6093cbaf-658f-4e3c-8945-767e159523b0"
-                        @action="procedure = $event;go('History')"/>
+                        @action="procedure = $event;go('Records')"/>
                     </b-col>
                     <b-col cols="12" md="auto">
                         <Card title="Consultar Historias y procedimientos"

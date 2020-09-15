@@ -63,7 +63,7 @@ export default {
       if (this.init) {
         const newX = evento.offsetX
         const newY = evento.offsetY
-        this.liena(this.x, this.y, newX, newY)
+        this.line(this.x, this.y, newX, newY)
         this.x = newX
         this.y = newY
       }
@@ -91,7 +91,7 @@ export default {
         const rect = this.canvas.getBoundingClientRect()
         const newX = touch.pageX - touch.target.offsetLeft
         const newY = touch.clientY - rect.top
-        this.liena(this.touchX, this.touchY, newX, newY)
+        this.line(this.touchX, this.touchY, newX, newY)
         this.touchX = newX
         this.touchY = newY
         event.preventDefault()
@@ -113,15 +113,19 @@ export default {
     }
   },
   mounted () {
-    const signature = null
     this.canvas = document.getElementById('signature')
     this.vueCanvas = this.canvas.getContext('2d')
+    // eslint-disable-next-line
     signature.addEventListener('mousedown', this.webInit)
+    // eslint-disable-next-line
     signature.addEventListener('mousemove', this.draw)
+    // eslint-disable-next-line
     signature.addEventListener('mouseup', this.finish)
-
+    // eslint-disable-next-line
     signature.addEventListener('touchstart', this.touchInit, false)
+    // eslint-disable-next-line
     signature.addEventListener('touchmove', this.touchDraw, false)
+    // eslint-disable-next-line
     signature.addEventListener('touchend', this.finish, false)
   }
 
