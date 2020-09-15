@@ -9,6 +9,7 @@ const routerOptions = [
   { path: '/about', name: 'About' },
   { path: '/signUp', name: 'Register' },
   { path: '/signIn', name: 'Login' },
+  { path: '/records', name: 'Records', meta: { requireAuth: true } },
   { path: '/error', name: 'Error' },
   { path: '*', redirect: { name: 'Home' } }
 ]
@@ -16,6 +17,7 @@ const routerOptions = [
 const routes = routerOptions.map(r => {
   return {
     ...r,
+    props: true,
     component: () => import(/* webpackChunkName: "[request]" */`@/views/${r.name}`)
   }
 })

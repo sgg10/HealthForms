@@ -1,4 +1,4 @@
-import Storage from 'firebase'
+import Storage from '../services/Store'
 
 const storage = new Storage()
 
