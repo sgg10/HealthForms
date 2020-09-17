@@ -3,10 +3,10 @@
     <b-navbar toggleable="lg" type="dark" class="NavBar" >
       <b-navbar-brand :to="{name: 'Home'}">
         <img
-          src= "@/assets/imgs/logo.svg"
+          src= "@/assets/imgs/logo1.svg"
           alt=""
-          width="100px"
-          height="70px"
+          width="200px"
+          height="75px"
         >
       </b-navbar-brand>
 
