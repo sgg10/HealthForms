@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     verificar () {
-      getAll('Historias').where('cedula', '==', this.cedula).get().then(result => {
+      getAll('Records').where('cedula', '==', this.cedula).get().then(result => {
         if (!result.empty) {
           this.datosHistoria = result.docs[0].data()
           this.datosHistoria.ID = result.docs[0].id
