@@ -26,6 +26,7 @@
 import Historia from './Record'
 import Procedimiento from './Procedure'
 import { getAll } from '../../backend/controllers/FirestoreController'
+import { getUser } from '../../backend/controllers/AuthController'
 
 export default {
   components: { Historia, Procedimiento },
@@ -42,7 +43,7 @@ export default {
   },
   methods: {
     verificar () {
-      getAll('Records').where('cedula', '==', this.cedula).get().then(result => {
+      getAll('Records').where('cedula', '==', this.cedula).where('company', '==', getUser().uid).get().then(result => {
         if (!result.empty) {
           this.datosHistoria = result.docs[0].data()
           this.datosHistoria.ID = result.docs[0].id

@@ -56,7 +56,7 @@
               </b-col>
           </b-row>
 
-          <section v-if="autorizaFotos=='Si' && 1+1==3">
+          <section v-if="autorizaFotos=='Si'">
               <h3>Fotos</h3>
               <b-row>
                   <b-col>
@@ -121,8 +121,8 @@ export default {
   methods: {
     upload (listFiles) {
       if (this.autorizaFotos === 'Si') {
-        listFiles.map(file => uploadImage(file, `Pacientes/${this.form.cc}`, file.name))
-        return listFiles
+        const links = listFiles.map(file => uploadImage(file, `Pacientes/${this.form.cc}`, file.name))
+        return links
       }
       return []
     },
@@ -139,6 +139,7 @@ export default {
         this.$router.push({ name: 'Home' })
       } catch (error) {
         showToast(this.$bvToast, 'Tarea Abortada', error.message, 'danger')
+        console.log(error)
       }
     }
   }

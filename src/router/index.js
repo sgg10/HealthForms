@@ -10,6 +10,8 @@ const routerOptions = [
   { path: '/signUp', name: 'Register' },
   { path: '/signIn', name: 'Login' },
   { path: '/records', name: 'Records', meta: { requireAuth: true } },
+  { path: '/consultation', name: 'Consultation', meta: { requireAuth: true } },
+  { path: '/covidcontrol', name: 'CovidControl', meta: { requireAuth: true } },
   { path: '/error', name: 'Error' },
   { path: '*', redirect: { name: 'Home' } }
 ]

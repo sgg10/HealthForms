@@ -265,6 +265,7 @@ import { showToast } from '../../utils'
 import { create, getAll, update } from '../../backend/controllers/FirestoreController'
 import { storage } from 'firebase'
 import { mapGetters } from 'vuex'
+import { getUser } from '../../backend/controllers/AuthController'
 
 export default {
   props: ['recibe', 'actualiza'],
@@ -342,7 +343,7 @@ export default {
       try {
         const user = await getAll('Companies').where('email', '==', this.user.email).get()
         this.form.pacienteDe = user.docs[0].id
-        await create('Records', this.form)
+        await create('Records', { ...this.form, company: getUser().uid })
         showToast(this.$bvToast, 'Registro Finalizado', 'Se ha creado la historia con exito, ahora se deben rellenar los datos del procedimiento', 'success')
         this.covid()
       } catch (error) {
