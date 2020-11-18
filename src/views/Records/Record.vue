@@ -48,7 +48,7 @@
                   </b-form-group>
                 </b-col>
               </b-row>
-              <b-row v-if="form.alergias.indexOf('Otros') != -1">
+              <b-row v-if="form.alergias.indexOf('Others') != -1">
                 <b-col>
                   <b-form-group label="Which?" label-for="txtOtrasAlergias">
                     <b-form-input id="txtOtrasAlergias" type="text" required placeholder="Others allergics" v-model="form.otrasAlergias"></b-form-input>
@@ -82,7 +82,7 @@
           <h3>Previous procedures</h3>
           <b-row>
             <b-col>
-              <b-form-group label="¿Se ha realizado maquellaje permanente antes?">
+              <b-form-group label="Have had you done permanent makeup before?">
                 <b-form-radio-group required v-model="form.procedimiento_anterior.value" :options="yes_no"></b-form-radio-group>
               </b-form-group>
             </b-col>
@@ -90,19 +90,19 @@
           <div v-if="form.procedimiento_anterior.value=='Si'">
             <b-row>
               <b-col>
-                <b-form-group label="¿Cuales?" label-for="txtCualesProAnteriores">
+                <b-form-group label="Which?" label-for="txtCualesProAnteriores">
                   <b-form-input id="txtCualesProAnteriores" type="text" required placeholder="Procedimientos" v-model="form.procedimiento_anterior.cuales"></b-form-input>
                 </b-form-group>
               </b-col>
               <b-col>
-                <b-form-group label="¿Hace cuanto?" label-for="txtHaceCuanto">
+                <b-form-group label="How long ago?" label-for="txtHaceCuanto">
                   <b-form-input id="txtHaceCuanto" type="text" required placeholder="Años" v-model="form.procedimiento_anterior.hace_cuanto"></b-form-input>
                 </b-form-group>
               </b-col>
             </b-row>
             <b-row>
               <b-col>
-                <b-form-group label="Pigmentación">
+                <b-form-group label="Pigmentation">
                   <b-form-radio-group required v-model="form.procedimiento_anterior.pigmentacion" :options="pigmentacion"></b-form-radio-group>
                 </b-form-group>
               </b-col>
@@ -114,26 +114,26 @@
             <h3>Autorizaciones</h3>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Autoriza el manejo de informacion personal?" label-for="txtManejoInfo">
+                    <b-form-group label="Do you authorize the handling of personal information?" label-for="txtManejoInfo">
                         <b-form-radio-group required v-model="form.autorizaciones.informacion" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Autoriza que se le envie informacion al correo elctronico" label-for="txtInfo">
+                    <b-form-group label="Do you authorize information to be sent to the email" label-for="txtInfo">
                         <b-form-radio-group required v-model="form.autorizaciones.autCorreo" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
                 <b-col v-if="form.autorizaciones.autCorreo=='Si'">
-                    <b-form-group label="Correo electronico" label-for="txtCorreo">
+                    <b-form-group label="Email" label-for="txtCorreo">
                         <b-form-input id="txtCorreo" required type="text" placeholder="Correo" v-model="form.autorizaciones.correo"></b-form-input>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Autoriza el uso de fotos?" label-for="txtFotos">
+                    <b-form-group label="Do you authorize the use of photos?" label-for="txtFotos">
                         <b-form-radio-group required v-model="form.autorizaciones.fotos" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
@@ -141,32 +141,32 @@
         </section>
 
         <section class="mt-4" v-if="!recibe.consulta && !actualiza">
-            <h3>Control por Covid-19</h3>
-            <h5>Registre Si o No si ha presentado alguno de los sintomas mencionados en las ultimas 12 horas</h5>
+            <h3>Control for Covid-19</h3>
+            <h5>Record Yes or No in case you have presented in the last 12 hours any of the mentioned symptoms</h5>
             <b-row>
                 <b-col>
-                    <b-form-group label="Tos seca" label-for="rbTos">
+                    <b-form-group label="Dry cough" label-for="rbTos">
                         <b-form-radio-group required v-model="control_covid.tos_seca" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="Cansancio o agotamiento" label-for="rbCansancio">
+                    <b-form-group label="Tiredness or exhaustion" label-for="rbCansancio">
                         <b-form-radio-group required v-model="control_covid.cansancio_agotamiento" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="Dolor de garganta" label-for="rbGarganta">
+                    <b-form-group label="Sore throat" label-for="rbGarganta">
                         <b-form-radio-group required v-model="control_covid.dolor_garganta" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="Dificultad respiratoria" label-for="rbRespiratoria">
+                    <b-form-group label="difficulty breathing" label-for="rbRespiratoria">
                         <b-form-radio-group required v-model="control_covid.dificultad_respiratoria" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
@@ -174,35 +174,35 @@
 
             <b-row>
                 <b-col>
-                    <b-form-group label="Dolor de cabeza" label-for="rbCabeza">
+                    <b-form-group label="Headache" label-for="rbCabeza">
                         <b-form-radio-group required v-model="control_covid.dolor_cabeza" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Algun miembro de su familia ha sido diagnosticado con Covid-19?" label-for="txtFotos">
+                    <b-form-group label="Has any member of your family been diagnosed with Covid-19?" label-for="txtFotos">
                         <b-form-radio-group required v-model="control_covid.familiares_con_covid" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Ha tenido contacto con alguna persona contagiada?" label-for="txtFotos">
+                    <b-form-group label="Have you had contact with someone infected?" label-for="txtFotos">
                         <b-form-radio-group required v-model="control_covid.contacto_con_contagiados" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Ha viajado en el ultimo mes?" label-for="txtFotos">
+                    <b-form-group label="Have you traveled in the last month?" label-for="txtFotos">
                         <b-form-radio-group required v-model="control_covid.viajo" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="¿Ha tenido contacto con personas que han viajado en el ultimo mes?" label-for="txtFotos">
+                    <b-form-group label="Have you had contact with people who have traveled in the last month?" label-for="txtFotos">
                         <b-form-radio-group required v-model="control_covid.contsacto_con_viajeros" :options="yes_no"></b-form-radio-group>
                     </b-form-group>
                 </b-col>
@@ -247,7 +247,7 @@
                 <b-button @click="actualizarHistoria" class="bg-success my-3" size="lg" block>Actualizar</b-button>
             </b-col>
         </b-row>
-        <b-modal id="modal-declaraciones" title="DECLARACION DEL PACIENTE" size="xl" scrollable centered
+        <b-modal id="modal-declaraciones" title="PATIENT STATEMENT" size="xl" scrollable centered
         cancel-variant="danger" cancel-title="No acepto" ok-title="Acepto" ok-variant="success"
         @ok="aceptoDeclaracion=true" @cancel="noContinua">
             <Declaracion />
@@ -265,7 +265,6 @@ import { showToast } from '../../utils'
 import { create, getAll, update } from '../../backend/controllers/FirestoreController'
 import { storage } from 'firebase'
 import { mapGetters } from 'vuex'
-import { getUser } from '../../backend/controllers/AuthController'
 
 export default {
   props: ['recibe', 'actualiza'],
@@ -311,10 +310,10 @@ export default {
         temeperatura: '',
         tipo: 'Entrada'
       },
-      alergias: ['Anestesia', 'Penicilina', 'Herpes', 'Otros'],
-      enfermedades: ['Presión', 'Azúcar', 'Corazón', 'Epilepsia', 'Sida', 'Cáncer', 'Cicatrización queloide', 'Lupus', 'Diabetes', 'Otros'],
+      alergias: ['Anesthesia', 'Penicillin', 'Herpes', 'Others'],
+      enfermedades: ['Pressure', 'Sugar', 'Heart', 'Epilepsy', 'AIDS', 'Cancer', 'Keloid scarring', 'Lupus', 'Diabetes', 'Others'],
       yes_no: ['Si', 'No'],
-      pigmentacion: ['Rosacea', 'Grisácea', 'Azulada', 'Borrosa', 'Normal'],
+      pigmentacion: ['Rosacea', 'Greyish', 'Bluish', 'Blurred', 'Normal'],
       datosFirma: {},
       continuaProceso: false,
       autoriza: false,
@@ -329,7 +328,7 @@ export default {
       this.$bvModal.show('modal-declaraciones')
     },
     noContinua () {
-      showToast(this.$bvToast, 'Acceso Denegado', 'Lo sentimos, no puedes continuar si no aceptas las declaraciones', 'danger')
+      showToast(this.$bvToast, 'Access Denied', 'Sorry, you cannot continue if you do not accept the statements', 'danger')
     },
     continuar () {
       const moment = require('moment')
@@ -343,8 +342,8 @@ export default {
       try {
         const user = await getAll('Companies').where('email', '==', this.user.email).get()
         this.form.pacienteDe = user.docs[0].id
-        await create('Records', { ...this.form, company: getUser().uid })
-        showToast(this.$bvToast, 'Registro Finalizado', 'Se ha creado la historia con exito, ahora se deben rellenar los datos del procedimiento', 'success')
+        await create('Records', this.form)
+        showToast(this.$bvToast, 'Registration Completed', 'The history has been created successfully, now the procedure data must be filled in', 'success')
         this.covid()
       } catch (error) {
         showToast(this.$bvToast, 'Error', error.message, 'danger')
@@ -354,7 +353,7 @@ export default {
     async actualizar () {
       try {
         await update('Records', this.recibe.ID, this.form)
-        showToast(this.$bvToast, 'Registro Finalizado', 'Se ha actualizado la historia con exito, ahora se deben rellenar los datos del procedimiento', 'success')
+        showToast(this.$bvToast, 'Registration Completed', 'history has been updated successfully, procedure details must now be filled in', 'success')
         this.covid()
       } catch (error) {
         showToast(this.$bvToast, 'Error', error.message, 'danger')
@@ -379,7 +378,7 @@ export default {
       this.form.edad = moment(this.form.fecha_nacimiento, 'DD/MM/YYYY').fromNow().split(' ')[0]
       try {
         await update('Records', this.recibe.ID, this.form)
-        showToast(this.$bvToast, 'Registro Finalizado', 'Se ha actualizado la historia con exito', 'success')
+        showToast(this.$bvToast, 'Registration Completed', 'History has been updated successfully', 'success')
         this.$router.push({ name: 'Home' })
       } catch (error) {
         showToast(this.$bvToast, 'Error', error.message, 'danger')
@@ -396,12 +395,12 @@ export default {
               this.form.firma = url
               this.continuar()
             })
-          }).catch(err => showToast(this.$bvToast, 'Tarea abortada', err.message, 'danger'))
+          }).catch(err => showToast(this.$bvToast, 'Task Aborted', err.message, 'danger'))
         } else {
-          showToast(this.$bvToast, 'Acceso Denegado', 'Lo sentimos, no puedes continuar sin tu firma', 'danger')
+          showToast(this.$bvToast, 'Access Denied', 'Sorry, you cannot continue without your signature', 'danger')
         }
       } else {
-        showToast(this.$bvToast, 'Acceso Denegado', 'Lo sentimos, no puedes continuar si no aceptas las declaraciones', 'danger')
+        showToast(this.$bvToast, 'Access Denied', 'Sorry, you cannot continue if you do not accept the statements', 'danger')
       }
     }
   }

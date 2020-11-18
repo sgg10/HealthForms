@@ -24,7 +24,7 @@
       </b-row>
       <b-row>
         <b-col>
-          <b-form-group label="Confirmar password:" label-for="password2">
+          <b-form-group label="Confirm password:" label-for="password2">
             <b-form-input placeholder="Password" class="input" type="password" id="password2" required v-model="pass2"></b-form-input>
           </b-form-group>
         </b-col>

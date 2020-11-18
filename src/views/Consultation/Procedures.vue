@@ -12,38 +12,38 @@
             <section class="informacion_procedimiento">
               <b-row class="my-2">
                 <b-col>
-                  <p>Trabajo deseado: {{seleccionado.trabajo_deseado}}</p>
+                  <p>Desired job: {{seleccionado.trabajo_deseado}}</p>
                 </b-col>
                 <b-col>
-                  <p>Trabajo realizado: {{seleccionado.trabajo_realizado}}</p>
-                </b-col>
-              </b-row>
-              <b-row class="my-2">
-                <b-col>
-                  <p>Pigmentos utilizados: {{seleccionado.pigmentos}}</p>
+                  <p>Work done: {{seleccionado.trabajo_realizado}}</p>
                 </b-col>
               </b-row>
               <b-row class="my-2">
                 <b-col>
-                  <p>Medicamentos recomendados: {{seleccionado.medicamentos}}</p>
+                  <p>Pigments used: {{seleccionado.pigmentos}}</p>
                 </b-col>
               </b-row>
               <b-row class="my-2">
                 <b-col>
-                  <p>Anexa autorizacion medica: {{seleccionado.autorizacion}}</p>
-                </b-col>
-                <b-col>
-                  <p>Valor: ${{configurarPrecio(seleccionado.valor)}}</p>
+                  <p>Recommended medications: {{seleccionado.medicamentos}}</p>
                 </b-col>
               </b-row>
               <b-row class="my-2">
                 <b-col>
-                  <p>Fecha de retoque: {{seleccionado.retoque}}</p>
+                  <p>Attach medical authorization: {{seleccionado.autorizacion}}</p>
+                </b-col>
+                <b-col>
+                  <p>Value: ${{configurarPrecio(seleccionado.valor)}}</p>
+                </b-col>
+              </b-row>
+              <b-row class="my-2">
+                <b-col>
+                  <p>Retouch date: {{seleccionado.retoque}}</p>
                 </b-col>
               </b-row>
             </section>
 
-            <section v-if="autorizaFotos=='Si'" class="fotos paciente">
+            <section v-if="autorizaFotos=='Yes'" class="Patient photos">
               <b-row>
                 <b-col>
                   <b-button @click="nFotos++" class="bg-success mb-3"><b-icon-plus-circle></b-icon-plus-circle> Agregar Foto</b-button>
@@ -111,7 +111,7 @@ export default {
       this.nuevoSetFotos = await Promise.all(this.upload(this.fotos))
       actualPhotoList.forEach(link => this.nuevoSetFotos.push(link))
       await update('Procedure', this.seleccionado.id, { fotos: this.nuevoSetFotos }).then(() => {
-        showToast(this.$bvToast, 'Tarea finalizada', 'Se ha guradado las nuevas fotos', 'success')
+        showToast(this.$bvToast, 'Task completed ', ' New photos have been saved', 'success')
         this.nuevoSetFotos = []
         this.foto = []
         this.nFotos = 0

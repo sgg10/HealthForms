@@ -4,7 +4,7 @@
       <b-form @submit.prevent="buscar" class="form_search mt-4">
         <b-row>
           <b-col>
-            <b-form-group label="Cedula:" label-for="txtCedula">
+            <b-form-group label="Id:" label-for="txtCedula">
               <b-form-input v-model="cedula" class="w-100 mr-3" id="txtCedula" list="listSku" type="text" required placeholder="Ingrese la cedula"></b-form-input>
             </b-form-group>
           </b-col>
@@ -17,9 +17,9 @@
 
     <div>
       <b-tabs content-class="mt-3" class="mt-2" v-if="visible">
-        <b-tab title="Historia" active><Record :recibe="datosHistoria"/></b-tab>
-        <b-tab title="Procedimientos"><Procedures :procedimientos="procedimientos" :autorizaFotos="datosHistoria.autorizaciones.fotos" /></b-tab>
-        <b-tab title="Control Covid-19"><CovidControl :registros="control" /></b-tab>
+        <b-tab title="History" active><Record :recibe="datosHistoria"/></b-tab>
+        <b-tab title="Procedures"><Procedures :procedimientos="procedimientos" :autorizaFotos="datosHistoria.autorizaciones.fotos" /></b-tab>
+        <b-tab title="Covid-19 Control"><CovidControl :registros="control" /></b-tab>
       </b-tabs>
     </div>
   </div>
@@ -67,7 +67,7 @@ export default {
           }
         })
       } else {
-        showToast(this.$bvToast, 'Alerta', 'Cliente no encontrado', 'warning')
+        showToast(this.$bvToast, 'Alert ', ' Customer not found', 'warning')
       }
     }
   }

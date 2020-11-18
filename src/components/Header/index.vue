@@ -13,9 +13,9 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav v-if="user">
-        <b-nav-item-dropdown text="Historias"  right>
-            <b-dropdown-item @click="$router.push({name: 'Historias'})">Crear nueva</b-dropdown-item>
-            <b-dropdown-item @click="$router.push({name: 'Consultas'})">Consultar</b-dropdown-item>
+        <b-nav-item-dropdown text="Stories"  right>
+            <b-dropdown-item @click="$router.push({name: 'Stories'})">Crear nueva</b-dropdown-item>
+            <b-dropdown-item @click="$router.push({name: 'Queries'})">Consultar</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
 

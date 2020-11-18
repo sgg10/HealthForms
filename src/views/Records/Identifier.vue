@@ -4,12 +4,12 @@
       <b-form @submit.prevent="verificar" class="form_identify mt-4">
         <b-row>
           <b-col>
-              <b-form-group label="Cedula:" label-for="txtSKU">
+              <b-form-group label="Id:" label-for="txtSKU">
                   <b-form-input v-model="cedula" class="w-100 mr-3" id="txtSKU" list="listSku" type="text" required placeholder="Ingrese la cedula"></b-form-input>
               </b-form-group>
           </b-col>
           <b-col>
-              <b-button type="submit" size="lg" class="bg-success mt-4"><b-icon-check-circle></b-icon-check-circle> Continuar</b-button>
+              <b-button type="submit" size="lg" class="bg-success mt-4"><b-icon-check-circle></b-icon-check-circle> Continue</b-button>
           </b-col>
         </b-row>
       </b-form>
@@ -26,7 +26,6 @@
 import Historia from './Record'
 import Procedimiento from './Procedure'
 import { getAll } from '../../backend/controllers/FirestoreController'
-import { getUser } from '../../backend/controllers/AuthController'
 
 export default {
   components: { Historia, Procedimiento },
@@ -43,7 +42,7 @@ export default {
   },
   methods: {
     verificar () {
-      getAll('Records').where('cedula', '==', this.cedula).where('company', '==', getUser().uid).get().then(result => {
+      getAll('Records').where('cedula', '==', this.cedula).get().then(result => {
         if (!result.empty) {
           this.datosHistoria = result.docs[0].data()
           this.datosHistoria.ID = result.docs[0].id

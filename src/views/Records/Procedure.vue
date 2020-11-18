@@ -5,58 +5,58 @@
         <b-form @submit.prevent="crear">
           <b-row>
               <b-col>
-                  <b-form-group label="Cedula:" label-for="txtCC">
+                  <b-form-group label="Id:" label-for="txtCC">
                       <b-form-input id="txtCC" v-model="form.cc" type="number" required placeholder="Cedula" disabled></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <b-form-group label="Trabajo deseado:" label-for="txtNom">
+                  <b-form-group label="Desired job:" label-for="txtNom">
                       <b-form-input id="txtNom" v-model="form.trabajo_deseado" type="text" required placeholder="Trabajo deseado" ></b-form-input>
                   </b-form-group>
               </b-col>
               <b-col>
-                  <b-form-group label="Trabajo realizado:" label-for="txtNom">
+                  <b-form-group label="Work done:" label-for="txtNom">
                       <b-form-input id="txtNom" v-model="form.trabajo_realizado" type="text" required placeholder="Trabajo realizado" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <b-form-group label="Pigmentos utilizados:" label-for="txtNom">
+                  <b-form-group label="Pigments used:" label-for="txtNom">
                       <b-form-input id="txtNom" v-model="form.pigmentos" type="text" required placeholder="Pigmentos" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <b-form-group label="Medicamentos recomendados:" label-for="txtNom">
+                  <b-form-group label="Recommended medications:" label-for="txtNom">
                       <b-form-input id="txtNom" v-model="form.medicamentos" type="text" required placeholder="Medicamentos" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <b-form-group label="Anexa autorizacion medica:" label-for="txtNom">
+                  <b-form-group label="Attach medical authorization:" label-for="txtNom">
                       <b-form-radio-group required v-model="form.autorizacion"  :options="yes_no"></b-form-radio-group>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
-                  <b-form-group label="Valor:" label-for="txtNom">
+                  <b-form-group label="Value:" label-for="txtNom">
                       <b-form-input id="txtNom" v-model="form.valor" type="text" required placeholder="Valor" ></b-form-input>
                   </b-form-group>
               </b-col>
               <b-col>
-                  <b-form-group label="Fecha del retoque:" label-for="txtNom">
+                  <b-form-group label="Retouch date:" label-for="txtNom">
                       <b-form-input id="txtNom" type="text" v-model="form.retoque" required placeholder="Fecha" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
 
-          <section v-if="autorizaFotos=='Si'">
+          <section v-if="autorizaFotos=='Si' && 1+1==3">
               <h3>Fotos</h3>
               <b-row>
                   <b-col>
@@ -98,7 +98,7 @@ export default {
   props: ['cedula', 'autorizaFotos'],
   data () {
     return {
-      yes_no: ['Si', 'No'],
+      yes_no: ['Yes', 'No'],
       nFotos: 0,
       fotos: [],
       form: {
@@ -120,9 +120,9 @@ export default {
   },
   methods: {
     upload (listFiles) {
-      if (this.autorizaFotos === 'Si') {
-        const links = listFiles.map(file => uploadImage(file, `Pacientes/${this.form.cc}`, file.name))
-        return links
+      if (this.autorizaFotos === 'Yes') {
+        listFiles.map(file => uploadImage(file, `Patients/${this.form.cc}`, file.name))
+        return listFiles
       }
       return []
     },
@@ -135,11 +135,10 @@ export default {
         const user = await getAll('Companies').where('email', '==', this.user.email).get()
         this.form.realizadoPor = user.docs[0].id
         await create('Procedure', this.form)
-        showToast(this.$bvToast, 'Tarea finalizada', 'Se ha guradado toda la informacion a la base de datos', 'success')
+        showToast(this.$bvToast, 'finished work', 'All information has been saved to the database', 'success')
         this.$router.push({ name: 'Home' })
       } catch (error) {
-        showToast(this.$bvToast, 'Tarea Abortada', error.message, 'danger')
-        console.log(error)
+        showToast(this.$bvToast, 'Aborted Task', error.message, 'danger')
       }
     }
   }

@@ -23,7 +23,7 @@
       <b-row>
         <b-col>
           <div @click="forgot" class="forgot" style="cursor: pointer;">
-              <strong>¿Olvidaste tu contraseña?</strong>
+              <strong>Did you forget your password?</strong>
           </div>
         </b-col>
       </b-row>
@@ -61,8 +61,8 @@ export default {
     },
     forgot () {
       this.email
-        ? changePass(this.email).then(() => showToast(this.$bvToast, 'Tarea completa', 'Hemos enviado un correo para cambiar la contraseña', 'success'))
-        : showToast(this.$bvToast, 'Advertencia', 'Ingresa tu email en el campo correspondiente', 'warning')
+        ? changePass(this.email).then(() => showToast(this.$bvToast, 'Complete task ', ' We have sent an email to change the password', 'success'))
+        : showToast(this.$bvToast, 'Warning ', ' Enter your email in the corresponding field', 'warning')
     }
   },
   created () {
