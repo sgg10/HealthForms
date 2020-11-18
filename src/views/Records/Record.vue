@@ -111,7 +111,7 @@
         </section>
 
         <section class="historia_container_autorizacion mt-4">
-            <h3>Autorizaciones</h3>
+            <h3>Authorizations</h3>
             <b-row>
                 <b-col>
                     <b-form-group label="Do you authorize the handling of personal information?" label-for="txtManejoInfo">
@@ -209,24 +209,24 @@
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group label="Temperatura: " label-for="txtFotos">
-                        <b-form-input id="txtTemperatura" type="number" required placeholder="Grados" v-model="control_covid.temeperatura"></b-form-input>
+                    <b-form-group label="Temperature: " label-for="txtFotos">
+                        <b-form-input id="txtTemperatura" type="number" required placeholder="degrees" v-model="control_covid.temeperatura"></b-form-input>
                     </b-form-group>
                 </b-col>
             </b-row>
         </section>
 
         <section class="mt-2">
-            <h3>Declaraciones del paciente</h3>
+            <h3>Patient statements</h3>
             <b-row>
                 <b-col>
-                    <b-button @click="declaraciones" class="bg-success mb-4">Leer declaracion del paciente</b-button>
+                    <b-button @click="declaraciones" class="bg-success mb-4">Read the patient Statements</b-button>
                 </b-col>
             </b-row>
         </section>
 
         <section class="mb-4">
-            <h3>Firma del paciente</h3>
+            <h3>Patient's signature</h3>
             <b-row>
                 <b-col v-if="!recibe.consulta">
                     <Signature @resultado="datosFirma=$event" @autoriza="autoriza=$event"/>
@@ -239,16 +239,16 @@
 
         <b-row v-if="!recibe.consulta && !actualiza">
             <b-col>
-                <b-button type="submit" class="bg-success my-3" size="lg" block>Continuar</b-button>
+                <b-button type="submit" class="bg-success my-3" size="lg" block>Continue</b-button>
             </b-col>
         </b-row>
         <b-row v-if="actualiza">
             <b-col>
-                <b-button @click="actualizarHistoria" class="bg-success my-3" size="lg" block>Actualizar</b-button>
+                <b-button @click="actualizarHistoria" class="bg-success my-3" size="lg" block>Update</b-button>
             </b-col>
         </b-row>
         <b-modal id="modal-declaraciones" title="PATIENT STATEMENT" size="xl" scrollable centered
-        cancel-variant="danger" cancel-title="No acepto" ok-title="Acepto" ok-variant="success"
+        cancel-variant="danger" cancel-title="I do not accept" ok-title="I accept" ok-variant="success"
         @ok="aceptoDeclaracion=true" @cancel="noContinua">
             <Declaracion />
         </b-modal>
@@ -263,6 +263,7 @@ import Declaracion from './Declaracion.vue'
 import Signature from '../../components/widgets/Signature'
 import { showToast } from '../../utils'
 import { create, getAll, update } from '../../backend/controllers/FirestoreController'
+import { getUser } from '../../backend/controllers/AuthController'
 import { storage } from 'firebase'
 import { mapGetters } from 'vuex'
 
@@ -312,7 +313,7 @@ export default {
       },
       alergias: ['Anesthesia', 'Penicillin', 'Herpes', 'Others'],
       enfermedades: ['Pressure', 'Sugar', 'Heart', 'Epilepsy', 'AIDS', 'Cancer', 'Keloid scarring', 'Lupus', 'Diabetes', 'Others'],
-      yes_no: ['Si', 'No'],
+      yes_no: ['Yes', 'No'],
       pigmentacion: ['Rosacea', 'Greyish', 'Bluish', 'Blurred', 'Normal'],
       datosFirma: {},
       continuaProceso: false,
@@ -342,7 +343,7 @@ export default {
       try {
         const user = await getAll('Companies').where('email', '==', this.user.email).get()
         this.form.pacienteDe = user.docs[0].id
-        await create('Records', this.form)
+        await create('Records', { ...this.form, company: getUser().uid })
         showToast(this.$bvToast, 'Registration Completed', 'The history has been created successfully, now the procedure data must be filled in', 'success')
         this.covid()
       } catch (error) {

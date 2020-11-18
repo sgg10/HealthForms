@@ -13,26 +13,26 @@
           <b-row>
               <b-col>
                   <b-form-group label="Desired job:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.trabajo_deseado" type="text" required placeholder="Trabajo deseado" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.trabajo_deseado" type="text" required placeholder="Desired job" ></b-form-input>
                   </b-form-group>
               </b-col>
               <b-col>
                   <b-form-group label="Work done:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.trabajo_realizado" type="text" required placeholder="Trabajo realizado" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.trabajo_realizado" type="text" required placeholder="Work done" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
                   <b-form-group label="Pigments used:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.pigmentos" type="text" required placeholder="Pigmentos" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.pigmentos" type="text" required placeholder="Pigments" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
                   <b-form-group label="Recommended medications:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.medicamentos" type="text" required placeholder="Medicamentos" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.medicamentos" type="text" required placeholder="Medications" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
@@ -46,21 +46,21 @@
           <b-row>
               <b-col>
                   <b-form-group label="Value:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.valor" type="text" required placeholder="Valor" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.valor" type="text" required placeholder="Value" ></b-form-input>
                   </b-form-group>
               </b-col>
               <b-col>
                   <b-form-group label="Retouch date:" label-for="txtNom">
-                      <b-form-input id="txtNom" type="text" v-model="form.retoque" required placeholder="Fecha" ></b-form-input>
+                      <b-form-input id="txtNom" type="text" v-model="form.retoque" required placeholder="Date" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
 
-          <section v-if="autorizaFotos=='Si' && 1+1==3">
+          <section v-if="autorizaFotos=='Yes'">
               <h3>Fotos</h3>
               <b-row>
                   <b-col>
-                      <b-button @click="nFotos++" class="bg-success mb-3"><b-icon-plus-circle></b-icon-plus-circle> Agregar Foto</b-button>
+                      <b-button @click="nFotos++" class="bg-success mb-3"><b-icon-plus-circle></b-icon-plus-circle> Add photo</b-button>
                   </b-col>
               </b-row>
               <b-row v-for="(index) in nFotos" :key="index" class="mb-3">
@@ -69,13 +69,13 @@
                       drop-placeholder="Foto"></b-form-file>
                   </b-col>
                   <b-col>
-                      <b-button class="bg-danger" @click="form.fotos.splice(index-1, 1);nFotos--"><b-icon-trash></b-icon-trash> Eliminar</b-button>
+                      <b-button class="bg-danger" @click="form.fotos.splice(index-1, 1);nFotos--"><b-icon-trash></b-icon-trash> Delete</b-button>
                   </b-col>
               </b-row>
           </section>
           <b-row>
               <b-col>
-                  <b-button type="submit" class="bg-success mt-4" block> Continuar</b-button>
+                  <b-button type="submit" class="bg-success mt-4" block> Continue</b-button>
               </b-col>
           </b-row>
         </b-form>
@@ -121,8 +121,8 @@ export default {
   methods: {
     upload (listFiles) {
       if (this.autorizaFotos === 'Yes') {
-        listFiles.map(file => uploadImage(file, `Patients/${this.form.cc}`, file.name))
-        return listFiles
+        const links = listFiles.map(file => uploadImage(file, `Patients/${this.form.cc}`, file.name))
+        return links
       }
       return []
     },
@@ -139,6 +139,7 @@ export default {
         this.$router.push({ name: 'Home' })
       } catch (error) {
         showToast(this.$bvToast, 'Aborted Task', error.message, 'danger')
+        console.log(error)
       }
     }
   }

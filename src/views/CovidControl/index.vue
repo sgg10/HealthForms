@@ -4,19 +4,18 @@
       <b-container class="control_container text-left mt-2" fluid>
         <b-form @submit.prevent="continuar">
           <section class="mt-4">
-            <h3>Control por Covid-19 para salida</h3>
-            <h5>Registre Si o No si ha presentado alguno de los sintomas mencionados en las ultimas 12 horas</h5>
+            <h3>Control of Covid-19 for exit</h3>
             <b-row>
               <b-col>
-                <b-form-group label="Cedula:" label-for="txtCC">
-                  <b-form-input id="txtCC" type="number" required placeholder="Cedula" v-model="control_covid.cedula"></b-form-input>
+                <b-form-group label="ID:" label-for="txtCC">
+                  <b-form-input id="txtCC" type="number" required placeholder="ID" v-model="control_covid.cedula"></b-form-input>
                 </b-form-group>
               </b-col>
             </b-row>
             <b-row>
               <b-col>
-                <b-form-group label="Temperatura: ">
-                  <b-form-input id="txtTemperatura" type="number" required placeholder="Grados" v-model="control_covid.temeperatura"></b-form-input>
+                <b-form-group label="Temperature: ">
+                  <b-form-input id="txtTemperatura" type="number" required placeholder="Degrees" v-model="control_covid.temeperatura"></b-form-input>
                 </b-form-group>
               </b-col>
             </b-row>
@@ -24,7 +23,7 @@
 
           <b-row>
             <b-col>
-              <b-button type="submit" class="bg-success my-3" size="lg" block>Registrar</b-button>
+              <b-button type="submit" class="bg-success my-3" size="lg" block>Register</b-button>
             </b-col>
           </b-row>
         </b-form>
@@ -60,7 +59,7 @@ export default {
     async continuar () {
       const moment = require('moment')
       const fecha = new Date()
-      this.control_covid.fecha = moment(fecha).format('DD/MM/YYYY')
+      this.control_covid.fecha = moment(fecha).format('MM/DD/YYYY')
       await create('Covid_Control', this.control_covid)
       this.$router.push({ name: 'Home' })
     }

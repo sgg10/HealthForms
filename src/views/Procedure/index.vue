@@ -14,26 +14,26 @@
           <b-row>
               <b-col>
                   <b-form-group label="Desired job:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.trabajo_deseado" type="text" required placeholder="Trabajo deseado" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.trabajo_deseado" type="text" required placeholder="Desired job" ></b-form-input>
                   </b-form-group>
               </b-col>
               <b-col>
                   <b-form-group label="Work done:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.trabajo_realizado" type="text" required placeholder="Trabajo realizado" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.trabajo_realizado" type="text" required placeholder="Work done" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
                   <b-form-group label="Pigments used:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.pigmentos" type="text" required placeholder="Pigmentos" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.pigmentos" type="text" required placeholder="Pigments" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
           <b-row>
               <b-col>
                   <b-form-group label="Recommended medications:" label-for="txtNom">
-                      <b-form-input id="txtNom" v-model="form.medicamentos" type="text" required placeholder="Medicamentos" ></b-form-input>
+                      <b-form-input id="txtNom" v-model="form.medicamentos" type="text" required placeholder="Medications" ></b-form-input>
                   </b-form-group>
               </b-col>
           </b-row>
@@ -57,7 +57,7 @@
               </b-col>
           </b-row>
 
-          <section v-if="autorizaFotos=='Si' && 1+1==3">
+          <section v-if="autorizaFotos=='Si'">
               <h3>Fotos</h3>
               <b-row>
                   <b-col>
