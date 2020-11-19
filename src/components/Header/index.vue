@@ -20,8 +20,7 @@
               <template v-slot:button-content>
                 <em>{{user.displayName || user.email}}</em>
               </template>
-              <!-- TODO: change url-->
-              <b-dropdown-item :to="{name: 'verRegistros'}" disabled>Profile</b-dropdown-item>
+              <b-dropdown-item :to="{name: 'Profile'}">Profile</b-dropdown-item>
               <b-dropdown-item href="#" @click="logOut">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
           <section v-else>

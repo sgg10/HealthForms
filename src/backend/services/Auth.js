@@ -2,6 +2,7 @@ import { firestore, auth } from 'firebase'
 
 class Auth {
   async createCompany (email, pass, displayName, router) {
+    await auth().setPersistence(auth.Auth.Persistence.SESSION)
     const result = await auth().createUserWithEmailAndPassword(email, pass)
     if (displayName) {
       await result.user.updateProfile({ displayName })
@@ -10,7 +11,10 @@ class Auth {
     router.push({ name: 'Home' })
   }
 
-  signInEmail = (email, pass) => auth().signInWithEmailAndPassword(email, pass)
+  signInEmail = async (email, pass) => {
+    await auth().setPersistence(auth.Auth.Persistence.SESSION)
+    return auth().signInWithEmailAndPassword(email, pass)
+  }
 
   signInGoogle () {
     const provider = new auth.GoogleAuthProvider()

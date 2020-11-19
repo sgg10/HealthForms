@@ -16,7 +16,7 @@
     </b-container>
     <h1 v-if="his" >Historias</h1>
     <Historia v-if="his" :actualiza="actualiza" :recibe="datosHistoria" @datos="recibeDatosHistoria=$event" @continua="pro = $event;his=false"/>
-    <h1 v-if="pro && !actualiza">Procedimiento</h1>
+    <h1 v-if="pro && !actualiza">Procedure</h1>
     <Procedimiento v-if="pro" :cedula="datosHistoria.cedula" :autorizaFotos="recibeDatosHistoria.autorizaciones.fotos"/>
 
   </div>
