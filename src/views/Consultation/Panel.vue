@@ -5,11 +5,11 @@
         <b-row>
           <b-col>
             <b-form-group label="Id:" label-for="txtCedula">
-              <b-form-input v-model="cedula" class="w-100 mr-3" id="txtCedula" list="listSku" type="text" required placeholder="Ingrese la cedula"></b-form-input>
+              <b-form-input v-model="cedula" class="w-100 mr-3" id="txtCedula" list="listSku" type="text" required placeholder="Put ID"></b-form-input>
             </b-form-group>
           </b-col>
           <b-col>
-            <b-button type="submit" size="lg" class="bg-success mt-4"><b-icon-check-circle></b-icon-check-circle> Continuar</b-button>
+            <b-button type="submit" size="lg" class="bg-success mt-4"><b-icon-check-circle></b-icon-check-circle> Continue</b-button>
           </b-col>
         </b-row>
       </b-form>

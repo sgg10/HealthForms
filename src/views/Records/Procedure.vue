@@ -57,7 +57,7 @@
           </b-row>
 
           <section v-if="autorizaFotos=='Yes'">
-              <h3>Fotos</h3>
+              <h3>Photos</h3>
               <b-row>
                   <b-col>
                       <b-button @click="nFotos++" class="bg-success mb-3"><b-icon-plus-circle></b-icon-plus-circle> Add photo</b-button>
