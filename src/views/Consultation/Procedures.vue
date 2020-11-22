@@ -119,8 +119,8 @@ export default {
       })
     },
     upload (listFiles) {
-      if (this.autorizaFotos === 'Si') {
-        const links = listFiles.map(file => uploadImage(file, `Pacientes/${this.seleccionado.cc}`, file.name))
+      if (this.autorizaFotos === 'Yes') {
+        const links = listFiles.map(file => uploadImage(file, `Patients/${this.seleccionado.cc}`, file.name))
         return links
       }
       return []
